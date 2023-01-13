@@ -3,7 +3,7 @@ import React from 'react';
 
 class App extends React.Component {
   constructor(props){
-    super(props);
+    super(props); 
     this.state={
       power: true,
       kit: acousticKit,
@@ -86,9 +86,9 @@ class App extends React.Component {
   };
   onKeyPress(e) {    
     const key = e.key.toUpperCase();
-    
     if (this.state.power && this.keys.includes(key)) {
       const node = document.getElementById(key);
+      console.log(node)
       this.playSound(node);
       this.activatePad(key);
       this.setState({
@@ -101,7 +101,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <main id="drum-machine" tabIndex="0" onKeyPress={this.onKeyPress}>
+      <main id="drum-machine" tabIndex="0" onKeyDown={this.onKeyPress}>
        <div id="container">
         <Drumkit 
             kit={this.state.kit} 
